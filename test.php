@@ -2,7 +2,6 @@
 include './Models.php';
 include './APIHelper.php';
 set_include_path(get_include_path() . PATH_SEPARATOR . 'phpseclib1.0.19');
-include 'File/X509.php';
 include('Crypt/RSA.php');
 
 //변수 선언
@@ -29,11 +28,8 @@ $rsaPubKeyObj = new RsaPublicKey($rsaPubResultStr);
 print_r("공개키 요청 결과 : $rsaPubResultStr \r\n");
 
 //RSA 공개키로 AES키 암호화
-$x509 = new File_X509();
-$x509->loadX509($rsaPubKeyObj->getPublicKey());
-$pkey = $x509->getPublicKey();
 $rsa = new Crypt_RSA();
-$rsa->loadKey($pkey);
+$rsa->loadKey($rsaPubKeyObj->getPublicKey());
 $rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
 
 $aesCipheredKey =  $rsa->encrypt($apiHelper->getAesPlainKey());	//RSA공개키로 AES키를 암호화
