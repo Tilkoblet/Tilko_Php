@@ -1,4 +1,5 @@
 <?php
+namespace Tilko\API\Models;
 
 /**
  * API Response의 기본 Object
@@ -8,24 +9,24 @@ class BaseModel
 	private $Status;
 	private $Message;
 
-	public function getStatus()
+	public function GetStatus()
 	{
 		return $this->Status;
 	}
 
-	public function setStatus($Status)
+	public function SetStatus($Status)
 	{
 		$this->Status = $Status;
 
 		return $this;
 	}
 
-	public function getMessage()
+	public function GetMessage()
 	{
 		return $this->Message;
 	}
 
-	public function setMessage($Message)
+	public function SetMessage($Message)
 	{
 		$this->Message = $Message;
 
@@ -39,22 +40,21 @@ class AuthResponse extends BaseModel
 {
 	private $AuthCode;
 
-
-	function __construct($jsonStr)
+	function __construct($JsonStr)
     {
-		$jsonArray = json_decode($jsonStr);
-		foreach($jsonArray as $key=>$value){
-		   $this->$key = $value;
+		$JsonArray = json_decode($JsonStr);
+		foreach($JsonArray as $Key=>$Value){
+		   $this->$Key = $Value;
 		}
 
 	}
 
-	public function getAuthCode()
+	public function GetAuthCode()
 	{
 		return $this->AuthCode;
 	}
 
-	public function setAuthCode($AuthCode)
+	public function SetAuthCode($AuthCode)
 	{
 		$this->AuthCode = $AuthCode;
 
@@ -71,32 +71,32 @@ class RsaPublicKey extends BaseModel
 	private $PublicKey;	//API 키에 매칭되는 RSA 공개키
 	private $ApiKey;	//전달한 API 키(검증 용)
 
-	function __construct($jsonStr)
+	function __construct($JsonStr)
     {
-		$jsonArray = json_decode($jsonStr);
-		foreach($jsonArray as $key=>$value){
-		   $this->$key = $value;
+		$JsonArray = json_decode($JsonStr);
+		foreach($JsonArray as $Key=>$Value){
+		   $this->$Key = $Value;
 		}
 
 	}
-	public function getPublicKey()
+	public function GetPublicKey()
 	{
 		return $this->PublicKey;
 	}
 
-	public function setPublicKey($PublicKey)
+	public function SetPublicKey($PublicKey)
 	{
 		$this->PublicKey = $PublicKey;
 
 		return $this;
 	}
 
-	public function getApiKey()
+	public function GetApiKey()
 	{
 		return $this->ApiKey;
 	}
 
-	public function setApiKey($ApiKey)
+	public function SetApiKey($ApiKey)
 	{
 		$this->ApiKey = $ApiKey;
 
