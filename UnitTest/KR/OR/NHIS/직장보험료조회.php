@@ -1,5 +1,5 @@
 <?php
-namespace UnitTest\KR\GO\IROS;
+namespace UnitTest\KR\OR\NHIS;
 
 $BasePath = realpath("../../../../Tilko.API/../");
 require_once($BasePath . "/UnitTest/Constant.php");
