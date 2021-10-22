@@ -2,8 +2,8 @@
 namespace UnitTest\KR\GO\IROS;
 
 $BasePath = realpath("../../../../Tilko.API/../");
-require_once($BasePath . "/UnitTest/ConstantLocal.php");
-require_once($BasePath . "/Tilko.API/RESTLocal.php");
+require_once($BasePath . "/UnitTest/Constant.php");
+require_once($BasePath . "/Tilko.API/REST.php");
 require_once($BasePath . "/Tilko.API/Models/Models.php");
 
 use Tilko\API;
