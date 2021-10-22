@@ -4,7 +4,7 @@ PHP 프로젝트의 소스코드입니다.
 ## 샘플 코드 (API 호출)
 ```php
 <?php
-namespace UnitTest\KR\GO\IROS;
+namespace UnitTest\KR\OR\NHIS;
 
 $BasePath = realpath("../../../../Tilko.API/../");
 require_once($BasePath . "/UnitTest/Constant.php");
