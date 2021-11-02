@@ -26,9 +26,9 @@ try {
     $PrivatePath = $Constant::CertPath . "/signPri.key";
 
     // Body 추가
-    $rest->AddBody("CertFile", _publicCert, true);                   // [암호화] 인증서 공개키(Base64 인코딩)
-    $rest->AddBody("KeyFile", _privateKey, true);                    // [암호화] 인증서 개인키(Base64 인코딩)
-    $rest->AddBody("CertPassword", Constant.CertPassword, true);     // [암호화] 인증서 암호(Base64 인코딩)
+    $rest->AddBody("CertFile", file_get_contents($PublicPath), true);                   // [암호화] 인증서 공개키(Base64 인코딩)
+    $rest->AddBody("KeyFile", file_get_contents($PrivatePath), true);                    // [암호화] 인증서 개인키(Base64 인코딩)
+    $rest->AddBody("CertPassword", $Constant::CertPassword, true);     // [암호화] 인증서 암호(Base64 인코딩)
     $Rest->AddBody("IdentityNumber", "", true);                      // [암호화] 주민등록번호(8012151234567 / Base64 인코딩)
     $Rest->AddBody("TelecomCompany", "", falsee);                    // 통신사 SKT : 0 / KT : 1 / LGT : 2 / SKT알뜰폰 : 3 / KT알뜰폰 : 4 / LGT알뜰폰 : 5 / NA : 6
     $Rest->AddBody("CellphoneNumber", "", true);                     // [암호화] 연락처(010XXXXXXXX / Base64 인코딩)

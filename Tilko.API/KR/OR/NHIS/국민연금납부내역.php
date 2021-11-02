@@ -26,9 +26,9 @@ try {
     $PrivatePath = $Constant::CertPath . "/signPri.key";
 
     // Body 추가
-    $rest->AddBody("CertFile", _publicCert, true);                   // [암호화] 인증서 공개키(Base64 인코딩)
-    $rest->AddBody("KeyFile", _privateKey, true);                    // [암호화] 인증서 개인키(Base64 인코딩)
-    $rest->AddBody("CertPassword", Constant.CertPassword, true);     // [암호화] 인증서 암호(Base64 인코딩)
+    $rest->AddBody("CertFile", file_get_contents($PublicPath), true);                   // [암호화] 인증서 공개키(Base64 인코딩)
+    $rest->AddBody("KeyFile", file_get_contents($PrivatePath), true);                    // [암호화] 인증서 개인키(Base64 인코딩)
+    $rest->AddBody("CertPassword", $Constant::CertPassword, true);     // [암호화] 인증서 암호(Base64 인코딩)
     $rest->AddBody("Year", "", false);                               // 검색년도(yyyy)
     $rest->AddBody("StartMonth", "", false);                         // 검색 시작 월(MM)
     $rest->AddBody("EndMonth", "", false);                           // 검색 종료 월(MM)

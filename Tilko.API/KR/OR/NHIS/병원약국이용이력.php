@@ -26,9 +26,9 @@ try {
     $PrivatePath = $Constant::CertPath . "/signPri.key";
     
     // Body 추가
-    $rest->AddBody("CertFile", _publicCert, true);                   // [암호화] 인증서 공개키(Base64 인코딩)
-    $rest->AddBody("KeyFile", _privateKey, true);                    // [암호화] 인증서 개인키(Base64 인코딩)
-    $rest->AddBody("CertPassword", Constant.CertPassword, true);     // [암호화] 인증서 암호(Base64 인코딩)
+    $rest->AddBody("CertFile", file_get_contents($PublicPath), true);                   // [암호화] 인증서 공개키(Base64 인코딩)
+    $rest->AddBody("KeyFile", file_get_contents($PrivatePath), true);                    // [암호화] 인증서 개인키(Base64 인코딩)
+    $rest->AddBody("CertPassword", $Constant::CertPassword, true);     // [암호화] 인증서 암호(Base64 인코딩)
     $Rest->AddBody("IdentityNumber", "", true);                      // [암호화]유저 주민등록번호 앞자리(yyMMdd / Base64 인코딩)
     $Rest->AddBody("StartDate", "", false);                          // 검색시작일(yyyyMMdd) 오늘부터 14개월 전부터 조회 가능
     $Rest->AddBody("EndDate", "", false);                            // 검색종료일(yyyyMMdd) 오늘부터 2개월 전까지 조회 가능
