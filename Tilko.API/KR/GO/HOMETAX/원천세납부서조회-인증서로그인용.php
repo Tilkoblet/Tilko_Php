@@ -1,4 +1,4 @@
-v<?php
+<?php
 namespace UnitTest\KR\GO\IROS;
 
 $BasePath = realpath("../../../../Tilko.API/../");
