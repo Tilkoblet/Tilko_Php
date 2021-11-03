@@ -1,7 +1,7 @@
 <?php
 namespace Tilko\API;
 
-$BasePath = realpath("../../../../Tilko.API/../");
+$BasePath = realpath("../Tilko.API/../");
 
 require_once($BasePath . "/UnitTest/Constant.php");
 require_once($BasePath . "/Tilko.API/Models/Models.php");
