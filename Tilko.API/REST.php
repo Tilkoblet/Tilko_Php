@@ -1,8 +1,6 @@
 <?php
 namespace Tilko\API;
 
-$BasePath = realpath("../Tilko.API/../");
-
 require_once($BasePath . "/UnitTest/Constant.php");
 require_once($BasePath . "/Tilko.API/Models/Models.php");
 require_once($BasePath . "/Tilko.API/Encryption/AES.php");
@@ -76,11 +74,11 @@ class REST
         $CUrl = curl_init();
 
 		curl_setopt_array($CUrl, array(
-		CURLOPT_URL => $Url,
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_CUSTOMREQUEST => "GET",
-		CURLOPT_SSL_VERIFYHOST => 0,
-		CURLOPT_SSL_VERIFYPEER => 0
+            CURLOPT_URL => $Url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0
 		));
 
 		$Response = curl_exec($CUrl);
