@@ -105,8 +105,10 @@ class REST
             } else {
                 $this->_bodies[$Key] = $Value;
             }
-        } catch (e) {
-            console.error(e);
+        }
+        catch (\Exception $e)
+        {
+            throw new \Exception($e->getMessage());
         }
     }
     
