@@ -15,7 +15,7 @@ use UnitTest;
 */
 class REST
 {
-    static $_apiServer = "";
+    private $_apiServer = "";
     private $_endPointUrl = "";
     private $_apiKey = "";     // API키
     private $_aesKey = array();     // AES 암호화에 사용할 키
@@ -41,7 +41,9 @@ class REST
     /// <param name="ApiKey">API키</param>
     public function __construct($ApiKey)
     {
-        $this->_apiServer = \UnitTest\Constant::ApiHost;
+        $Constant = new \UnitTest\Constant;
+        
+        $this->_apiServer = $Constant::ApiHost;
         
         if (empty($ApiKey))
         {
