@@ -23,11 +23,14 @@ try {
 
     // Body 추가
     $Rest->AddBody("TransactionKey", "", false);    // 등본발급 시 리턴받은 트랜잭션 키 (GUID)
-    $Rest->AddBody("IsSummary", "", false);         // 요약 데이터 포함여부(Y/N 공백 또는 다른 문자열일 경우 기본값 Y)
+    $Rest->AddBody("IsSummary", "Y", false);        // 요약 데이터 포함여부(Y/N 공백 또는 다른 문자열일 경우 기본값 Y)
 
     // API 호출
     define("Response", $Rest->Call());
     print("Response: " . Response);
+
+    // PDF 파일 저장
+    file_put_contents("D:/Temp/test_등기부등본PDF발급.pdf", base64_decode(json_decode(Response)->Message));
 }
 catch (\Exception $e)
 {
