@@ -98,4 +98,8 @@ curl_close($curl);
 
 print($response);
 
+
+// 바이너리 파일 저장
+file_put_contents("D:\\captcha.png", base64_decode(json_decode($response)->Result->CaptchaImage));
+
 ?>
